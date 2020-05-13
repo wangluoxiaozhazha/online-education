@@ -14,6 +14,14 @@ Online education是我在学校期间开发的一款视频点播系统，由Andr
 
 视频播放方面我弃用了Android原生的视频播放组件，采用了GitHub开源框架JiaoZiVideoPlayer，对哔哩哔哩开源视频播放框架ijkplayer进行了集成，比较流行，优点也比较多，支持多格式视频播放。
 
+### 目录
+
+------
+
+[TOC]
+
+
+
 ### Android端界面
 
 ------
@@ -27,6 +35,18 @@ Online education是我在学校期间开发的一款视频点播系统，由Andr
 ------
 
 
+
+### 项目结构
+
+------
+
+|—online-education
+
+​				|—online-education(服务端)
+
+​				|—OnlineStudy(客户端)
+
+​				|—sql(数据库文件)
 
 ### 使用技术
 
