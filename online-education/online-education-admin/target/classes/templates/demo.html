@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<div th:replace="public::link"></div>
+
+<body >
+<form th:action="@{/user/add}" method="post">
+    <div class="form-group">
+        <label>用户名称</label>
+        <input class="form-control" th:name="UserName">
+    </div>
+    <div class="form-group">
+        <label>电话</label>
+        <input class="form-control" th:name="Telephone">
+    </div>
+    <div class="form-group">
+        <label>密码</label>
+        <input class="form-control" th:name="Password">
+    </div>
+    <div class="form-group">
+        <label>路径</label>
+        <input class="form-control" th:name="UimagePath">
+    </div>
+    <div class="col-md-12 text-center">
+        <button th:type="submit" class="btn btn-primary btn-lg">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp确定&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </button>
+    </div>
+</form>
+
+</body>
+</html>

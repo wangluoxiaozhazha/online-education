@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="public::link"></div>
+
+
+<body>
+	<div id="wrapper">
+        <!--	bar-->
+        <div th:replace="public::bar"></div>
+        <!--      -->
+        <div th:replace="public::menu(activeUri='course-manage.html')"></div>
+        <!--        -->
+        <div id="page-wrapper">
+			<div id="page-inner">
+<!--			 -->
+				 <div class="row">
+                   <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h1 class="page-header">
+                            资源管理 <small>Resource Management</small>
+                        </h1>
+                    </div>
+                </div> 
+<!--                -->
+		            <div class="row">
+               <div class="col-md-2"></div>
+
+                <div class="col-md-8">
+                    <!-- Advanced Tables -->
+					 <div class="form-group">
+                         <label>资源名称</label>
+                         <input id="CourseName" class="form-control" th:name="CourseName" th:value="${name}" disabled>
+                     </div>
+
+                    <div class="form-group">
+                        <label>集数</label>
+                        <input id="NumberEpisodes" class="form-control" th:name="NumberEpisodes" th:value="${numberEpisodes}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label>所有资源</label>
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <tbody>
+                        <tr th:each="fileName:${fileNames}" class="warning">
+                            <td th:text="${fileName}">Trident</td>
+                            <th>
+                                <a th:href="@{/resource/delete/(name=${name},numberEpisodes=${numberEpisodes},fileName=${fileName})}" class="btn btn-danger btn-sm">删除</a>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+
+                    <div class="form-group">
+                       <label>上传资源</label>
+                            <div class="progress progress-striped active">
+                                <div id="myProgress" class="progress-bar progress-bar-success" role="progressbar"  aria-valuemin="0" aria-valuemax="100"  style="width: 0%">
+                                    <span class="sr-only">80%</span>
+                                </div>
+                            </div>
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-primary btn-lg" id="upid">
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp上传资源&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            </button>
+                        </div>
+                  </div>
+
+            </div>
+
+			</div>
+          </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+    </div>
+    <!--引入对话框-->
+    <div class="modal fade" id="myModalMessage"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        您正在进行上传操作
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    上传成功！
+                </div>
+                <div class="modal-footer">
+                    <a href="#" th:href="@{/resource/manage/(name=${name},numberEpisodes=${numberEpisodes})}" class="btn btn-danger btn-sm">确定</a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</body>
+<script src="/assets/js/uploader/fcup.js"></script>
+<script type="text/javascript">
+    // 进度条
+    function Progress(value) {
+        var myProgress = document.getElementById("myProgress");
+        myProgress.style.cssText = 'width:' + value + '%';
+        myProgress.innerText=value+ '%';
+        if (value==100){
+            $("#myModalMessage").modal("show");
+        }
+    }
+
+    function getName() {
+      var  name=  $("#CourseName").val();
+      return name;
+    }
+    function getNumberEpisodes() {
+        return $('#NumberEpisodes').val();
+    }
+</script>
+<script>
+    // 上传案例
+     new fcup({
+
+        id: "upid", // 绑定id
+
+        url: "/resource/put", // url地址
+
+        type: "", // 限制上传类型，为空不限制
+
+        shardsize: "10", // 每次分片大小，单位为M，默认1M
+
+        minsize: '', // 最小文件上传M数，单位为M，默认为无
+
+        maxsize: "4096", // 上传文件最大M数，单位为M，默认200M
+        // headers: {"version": "fcup-v2.0"}, // 附加的文件头
+
+         apped_data: {courseName:getName()}, //每次上传的附加数据
+
+         timeout:65534,
+        // 定义错误信息
+        errormsg: {
+            1000: "未找到上传id",
+            1001: "类型不允许上传",
+            1002: "上传文件过小",
+            1003: "上传文件过大",
+            1004: "上传请求超时"
+        },
+
+        // 错误提示
+        error: (msg) => {
+            alert(msg);
+        },
+
+        // 初始化事件
+        start: () => {
+            console.log('上传已准备就绪');
+            Progress(0);
+        },
+
+        // 等待上传事件，可以用来loading
+        beforeSend: () => {
+            console.log('等待请求中');
+        },
+
+        // 上传进度事件
+        progress: (num, other) => {
+            Progress(num);
+            console.log(num);
+            console.log('上传进度' + num);
+            console.log("上传类型" + other.type);
+            console.log("已经上传" + other.current);
+            console.log("剩余上传" + other.surplus);
+            console.log("已用时间" + other.usetime);
+            console.log("预计时间" + other.totaltime);
+        },
+
+        // 上传成功回调，回调会根据切片循环，要终止上传循环，必须要return false，成功的情况下要始终返回true;
+        success: (res) => {
+
+            let data = res ? eval('(' + res + ')') : '';
+
+            let url = data.url + "?" + Math.random();
+
+            if (data.status == 2) {
+                alert('上传完成');
+            }
+
+            if (data.status == 3) {
+                Progress(100);
+                alert('已经上传过了');
+                return false;
+            }
+
+            // 如果接口没有错误，必须要返回true，才不会终止上传循环
+            return true;
+        }
+    });
+
+</script>
+</html>
