@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+        <item
+        android:id="@+id/action_search_edit"
+        android:title="搜索"
+        app:showAsAction="always"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+
+
+    <!--&lt;!&ndash;always:永远显示在toolbar中-->
+        <!--ifRoom：表示屏幕空间足够情况下在Toolbar中显示，不够则在菜单中显示-->
+        <!--never：表示永远在菜单中显示-->
+        <!--注意：菜单中的按钮只显示文字，不显示图片&ndash;&gt;-->
+
+
+    <!--<item-->
+        <!--android:id="@+id/delete"-->
+        <!--android:title="删除"-->
+        <!--app:showAsAction="ifRoom"-->
+        <!--android:icon="@drawable/ic_delete"/>-->
+
+    <!--<item-->
+        <!--android:id="@+id/settings"-->
+        <!--android:title="设置"-->
+        <!--app:showAsAction="never"/>-->
+
+    <!---->
+</menu>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/colorPrimary">
+
+    <!--一个居中
+        一个在父布局的底部
+        一个在另一个TextView的上方-->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/icon_image"
+        android:src="@drawable/nav_icon"
+        android:layout_centerInParent="true"/>
+
+    <!--以下两个控件当登录成功后，即从后台获取姓名与邮箱信息-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mail"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:textColor="#FFF"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/username1"
+        android:layout_above="@id/mail"
+        android:layout_centerInParent="true"
+        android:text="登录在线教育"
+        android:textColor="#FFF"
+        android:textSize="20sp"/>
+    
+</RelativeLayout>

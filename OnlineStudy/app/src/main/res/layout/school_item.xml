@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--layout_width=100dp这样高校图片就不会贴在一起了-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--注解:线性布局控件会先摆满第一行,然后第二行,依次类推-->
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/school_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/school_name"/>
+
+</LinearLayout>

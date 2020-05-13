@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--single表示所有菜单项只能单选-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_call"
+            android:icon="@drawable/nav_delate"
+            android:title="创建账号"/>
+
+        <item
+            android:id="@+id/nav_update_password"
+            android:icon="@drawable/nav_wifi"
+            android:title="修改密码" />
+
+
+        <item
+            android:id="@+id/nav_mylove"
+            android:icon="@drawable/nav_wifi"
+            android:title="我的课程"/>
+
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/nav_about"
+            android:title="关于移动在线教育"/>
+
+    </group>
+</menu>
