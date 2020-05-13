@@ -21,7 +21,7 @@ Online education是我在学校期间开发的一款视频点播系统，由Andr
 ------
 
 <img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-36-54-33_11eee3e6b847cc2.png" width="300" height="550"/><img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-37-04-32_11eee3e6b847cc2.png" width="300" height="550" /><img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-37-11-95_11eee3e6b847cc2.png" width="300" height="550" /><img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-37-17-37_11eee3e6b847cc2.png" width="300" height="550" /><img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-37-24-27_11eee3e6b847cc2.png" width="300" height="550" /><img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-38-20-29_11eee3e6b847cc2.png" width="300" height="550" /><img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-38-24-31_11eee3e6b847cc2.png" width="300" height="550" />
-
+<img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-13-13-44-49-87_11eee3e6b847cc2.png" width="1000" height="450"/>
 
 
 ### 后台管理系统界面
