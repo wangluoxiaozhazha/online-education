@@ -26,7 +26,7 @@ Online education是我在学校期间开发的一款视频点播系统，由Andr
 
 ------
 
-<img src="C:\Users\Administrator\Desktop\images\Screenshot_2020-05-12-22-36-54-33_11eee3e6b847cc2.png" style="zoom:25%;" /><img src="C:\Users\Administrator\Desktop\images\Screenshot_2020-05-12-22-37-04-32_11eee3e6b847cc2.png" style="zoom:25%;" /><img src="C:\Users\Administrator\Desktop\images\Screenshot_2020-05-12-22-37-11-95_11eee3e6b847cc2.png" style="zoom:25%;" />
+<img src="https://github.com/wangluoxiaozhazha/online-education/blob/master/images/Screenshot_2020-05-12-22-36-54-33_11eee3e6b847cc2.png" style="zoom:25%;" /><img src="C:\Users\Administrator\Desktop\images\Screenshot_2020-05-12-22-37-04-32_11eee3e6b847cc2.png" style="zoom:25%;" /><img src="C:\Users\Administrator\Desktop\images\Screenshot_2020-05-12-22-37-11-95_11eee3e6b847cc2.png" style="zoom:25%;" />
 
 
 
