@@ -1,0 +1,52 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/css/style.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+<script src="webjars/jquery/3.3.1-1/jquery.js"></script>
+	<div class="main">
+		<div class="login">
+			<h1>移动在线教育管理系统</h1>
+			<div class="inset">
+				<!--start-main-->
+				<form th:action="@{/index.html}" method="post">
+			         <div>
+			         	<h2>管理登录</h2>
+						<span><label>用户名</label></span>
+						<span><input type="text" class="textbox" name="adminname"></span>
+					 </div>
+
+					 <div>
+						<span><label>密码</label></span>
+					    <span><input type="password" class="password" name="password"></span>
+					 </div>
+
+                    <div>
+                        <span><label>验证码</label></span>
+                        <span>
+                            <img id="captchaImg" alt="" onclick="refresh()" th:src="@{/captcha/getCaptchaCode}"/>
+                            <input type="text" name="verifyCodeActual" style="width: 100px;height: 40px;"/>
+                        </span>
+
+                    </div>
+					<div class="sign">
+                        <input type="submit" value="登录" class="submit" />
+					</div>
+
+					</form>
+				</div>
+			</div>
+		<!--//end-main-->
+		</div>
+<script type="text/javascript">
+	function refresh() {
+		document.getElementById('captchaImg').src="/captcha/getCaptchaCode?"+Math.random();
+	}
+</script>
+</body>
+
+</html>

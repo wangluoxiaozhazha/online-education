@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="public::link"></div>
+<script>
+    function myfunction(){
+        if([[${transmission.request}]]==1)
+            $("#myModalDelete").modal("show")
+        if([[${transmission.request}]]==2)
+            $("#myModalAdd").modal("show")
+    }
+</script>
+<script>
+    function classFuntion() {
+         var vs = $('select  option:selected').val();
+         var url='/course-manage/classification/?classification='+vs;
+        window.location.href=url;
+    }
+</script>
+<body onload="myfunction()">
+	<div id="wrapper">
+        <!--	bar-->
+        <div th:replace="public::bar"></div>
+        <!--      -->
+        <div th:replace="public::menu(activeUri='course-manage.html')"></div>
+        <!--        -->
+        <div id="page-wrapper">
+			<div id="page-inner">
+<!--			 -->
+				 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            课程信息 <small>Course information</small>
+                        </h1>
+                    </div>
+                 </div>
+				  <div class="row">
+                    <div class="col-md-12">
+                    	<div class="col-md-4 pull-right">
+                            <form th:action="@{/course/select}" method="post">
+						   <div class="form-group input-group ">
+								 <input type="text" class="form-control" th:name="CourseName">
+								 <span class="input-group-btn">
+									<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+                            </form>
+						</div>
+                    </div>
+                 </div>
+<!--                -->
+		            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading col-md-8">
+                             课程表
+                        </div>
+                        <div class="form-group col-md-4">
+                            <br>
+                            <select class="form-control" onchange="classFuntion()">
+                                <option th:text="全部" value="全部"></option>
+                                <option th:each="class:${classIfications}"  th:text="${class.getClassName()}" th:value="${class.getClassName()}" th:selected="(${transmission.getClassification()}==${class.getClassName()})">1</option>
+                            </select>
+                        </div>
+                        <div class="panel-body">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>资源名称</th>
+                                            <th>作者</th>
+                                            <th>分类</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="resource:${resources}">
+                                            <td th:text="${resource.getResourceID()}">Trident</td>
+                                            <td th:text="${resource.getCourseName()}">Internet Explorer 4.0</td>
+                                            <td th:text="${resource.getLecturer()}">Win 95+</td>
+                                            <td th:text="${resource.getClassIfication()}">4</td>
+                                            <th>
+                                                <a th:href="@{/course-manage/requestupdate/(id=${resource.getResourceID()})}" class="btn btn-info btn-sm">修改</a>
+                                                <a th:href="@{/course-manage/requestdelete/(page=${transmission.getPage()},id=${resource.getResourceID()},classification=${transmission.getClassification()})}" class="btn btn-danger btn-sm">删除</a>
+                                                <a th:href="@{/resource/manage/(name=${resource.getCourseName()},numberEpisodes=${resource.getNumberEpisodes()})}" class="btn btn-primary btn-sm">管理资源</a>
+                                                <a th:href="@{/resource/reference/(page=${transmission.getPage()},id=${resource.getResourceID()},re=${resource.getReference()},classification=${transmission.getClassification()})}" th:class="${resource.getReference()=='1'}?'btn btn-success btn-sm':'btn btn-warning btn-sm'">[[${resource.getReference()=='1'}?'已设为推荐':'推荐']]</a>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+<!--										<div class="col-md-4"></div>-->
+                            <div class="col-md-12 text-center" th:fragment="page">
+                                <ul class="pagination center">
+                                    <li><a th:href="@{/course-manage/(page=${transmission.indexPage},classification=${transmission.getClassification()})}">首页</a></li>
+                                    <li><a th:href="@{/course-manage/(page=${transmission.page}-1,classification=${transmission.getClassification()})}">上一页</a></li>
+                                    <li class="active"><a th:text="${transmission.page}"></a></li>
+                                    <li><a th:href="@{/course-manage/(page=${transmission.page}+1,classification=${transmission.getClassification()})}">下一页</a></li>
+                                    <li><a href="#" th:href="@{/course-manage/(page=${transmission.endPage},classification=${transmission.getClassification()})}">尾页</a></li>
+                                </ul>
+                            </div>
+<!--                       					<div class="col-md-4"></div>-->
+                        </div>
+           							  
+                    </div>
+
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+			</div>
+          </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+    <!--引入删除对话框-->
+    <div th:replace="public::myModalDelete(deleteUrl='/course-manage/delete')"></div>
+    <!--引入修改对话框-->
+    <div th:replace="public::dialogue"></div>
+</body>
+</html>

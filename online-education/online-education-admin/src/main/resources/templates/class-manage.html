@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="public::link"></div>
+<script>
+    function myfunction(){
+        if([[${transmission.request}]]==1)
+            $("#myModalDelete").modal("show")
+        if([[${transmission.request}]]==2)
+            $("#myModalAdd").modal("show")
+    }
+</script>
+<body onload="myfunction()">
+	<div id="wrapper">
+        <!--	bar-->
+        <div th:replace="public::bar"></div>
+        <!--      -->
+        <div th:replace="public::menu(activeUri='class-manage.html')"></div>
+        <!--        -->
+        <div id="page-wrapper">
+			<div id="page-inner">
+<!--			 -->
+				 <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            分类信息 <small>Classified information</small>
+                        </h1>
+                    </div>
+                 </div>
+
+<!--                -->
+		            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             分类表
+                        </div>
+                        <div class="panel-body">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>分类名称</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="class:${classIfications}">
+                                            <td>[[${class.classID}]]</td>
+                                            <td>[[${class.className}]]</td>
+                                            <th><a th:href="@{/class-manage/requestupdate/(id=${class.classID})}" class="btn btn-info btn-sm">修改</a>
+                                            <a href="#" th:href="@{/class-manage/requestdelete/(page=${transmission.page},id=${class.classID})}" class="btn btn-danger btn-sm">删除</a>
+                                            </th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+<!--										<div class="col-md-4"></div>-->
+						<div th:replace="public::page(actionUrl='/class-manage')"></div>
+<!--                       					<div class="col-md-4"></div>-->
+                        </div>
+           							  
+                    </div>
+
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+			</div>
+          </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+<!--引入删除对话框-->
+<div th:replace="public::myModalDelete(deleteUrl='/class-manage/delete')"></div>
+<!--引入修改对话框-->
+<div th:replace="public::dialogue"></div>
+</body>
+</html>

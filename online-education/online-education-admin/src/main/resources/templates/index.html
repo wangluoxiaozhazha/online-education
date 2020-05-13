@@ -1,0 +1,39 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="public::link"></div>
+<body>
+	<div id="wrapper">
+<!--	bar-->
+		<div th:replace="public::bar"></div>
+<!--      -->
+        <div th:replace="public::menu(activeUri='index.html')"></div>
+<!--        -->
+		<div id="page-wrapper">
+            <div id="page-inner">
+            	<div class="row">
+            		   <div class="col-md-12">
+                        	<h1 class="page-header">
+                            数据概况 <small>Data overview</small>
+                        	</h1>
+                    	</div>
+            	</div>
+            	<div class="row">
+            		<div class="col-md-3 col-xs-6" th:each="class:${classIfications}">
+							<div class="panel panel-default">
+								<div class="panel-body easypiechart-panel">
+									<h4 th:text="${class.getClassName()}"></h4>
+									<div th:class="${class.getPercentage()>'10'?'easypiechart easypiechart-teal':'easypiechart easypiechart-red'}"th:data-percent="${class.getPercentage()}+'%'"><span class="percent" th:text="${class.getPercentage()}">82%</span>
+									</div>
+									<h5 th:text="${class.getNumber()}">1251</h5>
+								</div>
+							</div>
+					</div>
+            	</div>
+            	<!--<div  class="row" id="zj" style="width: 1500px;height:400px;"></div>-->
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+</html>

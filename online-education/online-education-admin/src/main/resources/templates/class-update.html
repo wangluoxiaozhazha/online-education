@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="public::link"></div>
+
+<body>
+	<div id="wrapper">
+        <!--	bar-->
+        <div th:replace="public::bar"></div>
+        <!--      -->
+        <div th:replace="public::menu(activeUri='class-manage.html')"></div>
+        <!--        -->
+        <div id="page-wrapper">
+			<div id="page-inner">
+<!--			 -->
+				 <div class="row">
+                   <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h1 class="page-header">
+                             修改分类<small> Update classification</small>
+                        </h1>
+                    </div>
+                </div> 
+<!--                -->
+		            <div class="row">
+               <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form th:action="@{/updateclass/(id=${classIfication.classID})}" th:method="post">
+                    <!-- Advanced Tables -->
+					 <div class="form-group">
+                         <label>分类名称</label>
+                         <input class="form-control" th:name="ClassName" th:value="${classIfication.className}">
+                     </div>
+					 
+                   <div class="col-md-12 text-center">
+                   		 <button th:type="submit" class="btn btn-primary btn-lg">
+                              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp确定&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         </button>
+                   </div>
+                    <!--End Advanced Tables -->
+                    </form>
+                </div>
+            </div>
+
+			</div>
+          </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+    <!--引入对话框-->
+
+
+</body>
+</html>
