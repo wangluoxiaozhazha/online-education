@@ -65,7 +65,7 @@ Android端：
 - jiaozivideoplayer(强大灵活视频内核集成框架，可集成多种解码内核)  项目地址[https://github.com/Jzvd/JiaoZiVideoPlayer](https://github.com/Jzvd/JiaoZiVideoPlayer)
 - ijkplayer(流行强大的视频解析内核)
 - banner(Android开发必用的广告图片轮播控件)  项目地址：[https://github.com/youth5201314/banner](https://github.com/youth5201314/banner)
-
+- 登录注册界面是来自GitHub开源项目，但由于时间太久我找不到地址了，十分抱歉！
 ### 开发环境
 
 ------
